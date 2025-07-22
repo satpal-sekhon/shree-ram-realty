@@ -1,103 +1,125 @@
-import Image from "next/image";
+import HeroSection from "@/components/home/HeroSection";
+import DevelopersSection from "@/components/home/DevelopersSection";
+import FeaturedPropertiesSection from "@/components/home/FeaturedPropertiesSection";
+import TestimonialsSection from "@/components/home/TestimonialsSection";
+import CallToActionSection from "@/components/home/CallToActionSection";
 
-export default function Home() {
+const developers = [
+  {
+    id: 1,
+    name: "Emaar Properties",
+    logo: "/images/emaar-logo.png",
+    projectsCompleted: 120,
+    specialty: "Luxury Communities"
+  },
+  {
+    id: 2,
+    name: "Jubilee",
+    logo: "/images/jubilee-logo.jpg",
+    projectsCompleted: 45,
+    specialty: "Waterfront Properties"
+  },
+  {
+    id: 3,
+    name: "SBI Homes",
+    logo: "/images/sbi-logo.jpg",
+    projectsCompleted: 80,
+    specialty: "Affordable Housing"
+  },
+  {
+    id: 4,
+    name: "Horizon Group",
+    logo: "/images/horizon-logo.jpeg",
+    projectsCompleted: 35,
+    specialty: "Sustainable Living"
+  },
+];
+
+const featuredProperties = [
+  {
+    id: 1,
+    title: "Luxury Downtown Apartment",
+    price: "$1,200,000",
+    beds: 3,
+    baths: 3,
+    sqft: 2200,
+    location: "Downtown Mohali",
+    image: "/images/property1.jpg",
+    featured: true,
+    developer: "Emaar",
+    completionDate: "Q4 2024",
+    type: "apartment"
+  },
+  {
+    id: 2,
+    title: "Waterfront Villa",
+    price: "$3,500,000",
+    beds: 5,
+    baths: 4,
+    sqft: 4800,
+    location: "Palm Jumeirah",
+    image: "/images/property2.webp",
+    featured: true,
+    developer: "Jubilee",
+    completionDate: "Q2 2025",
+    type: "villa"
+  },
+  {
+    id: 3,
+    title: "Horizon Hills Townhouse",
+    price: "$950,000",
+    beds: 4,
+    baths: 3,
+    sqft: 2800,
+    location: "Sekhon City",
+    image: "/images/property3.jpg",
+    featured: false,
+    developer: "Horizon Group",
+    completionDate: "Q1 2025",
+    type: "townhouse"
+  },
+  {
+    id: 4,
+    title: "SBI Premium Plot",
+    price: "$650,000",
+    beds: 0,
+    baths: 0,
+    sqft: 5000,
+    location: "Dubai South",
+    image: "/images/property4.webp",
+    featured: false,
+    developer: "SBI Homes",
+    completionDate: "Ready for Construction",
+    type: "plot"
+  },
+];
+
+const testimonials = [
+  {
+    id: 1,
+    name: 'John Doe',
+    position: 'Investor',
+    message: 'Great experience working with the team. Found the perfect property in no time!',
+    image: '/images/testimonial1.jpg',
+  },
+  {
+    id: 2,
+    name: 'Jane Smith',
+    position: 'Homebuyer',
+    message: 'I love my new home! The whole process was smooth, and I felt well-supported.',
+    image: '/images/testimonial2.jpg',
+  },
+  // More testimonials...
+];
+
+export default function HomePage() {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+    <main>
+      <HeroSection />
+      <DevelopersSection developers={developers} />
+      <FeaturedPropertiesSection properties={featuredProperties} />
+      <TestimonialsSection testimonials={testimonials} />
+      <CallToActionSection />
+    </main>
   );
 }
